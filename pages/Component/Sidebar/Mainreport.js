@@ -72,8 +72,8 @@ export default function Mainreport() {
   return (
     <div>
         <ThemeProvider theme={customTheme}>
-            <Box sx= {{backgroundColor: '#fff', minWidth: '1440px'}}>
-                <Grid container sx={{minHeight: '700px'}}>
+            <Box sx= {{backgroundColor: '#fff', minWidth: '1440px', height: '100vh'}}>
+                <Grid container sx={{minHeight: '700px', height: '100%'}}>
                     <Grid 
                     sx= {{
                         backgroundColor: '#fff', 
@@ -82,18 +82,16 @@ export default function Mainreport() {
                         }}
                         >
                         <Grid container direction= "column" sx= {{alignItems: 'center'}}>
-                            <Grid sx= {{backgroundColor: '#00A09D', borderRadius: '5px', my: 3}}>
+                            <Grid sx= {{backgroundColor: '#00A09D', borderRadius: '5px', mb: 3, mt: 5}}>
                                 <Typography variant='h6' fontWeight= "bold" className= {styles.kanit1} sx= {{px: 3, color: '#fff'}}>
                                     รายงาน
                                 </Typography>
                             </Grid>
-                                <Grid>
+                                <Grid container sx={{justifyContent: 'center'}}>
                                 {MenuItems.map(item => (
                                     <Link href={item.href}>
-                                        
                                     <Menubutton 
                                         sx= {{
-                                        ml: 3,
                                         border: '2px solid #8AD2B0', 
                                         height: '50px',
                                         width: '570px',

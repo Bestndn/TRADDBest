@@ -12,7 +12,7 @@ export default function index() {
   return (
     <div>
         <Grid container mt={2}>
-            <Grid item xs={12} sx= {{display: 'flex', alignItems: 'center'}}>
+            <Grid item xs={12} sx= {{display: 'flex', alignItems: 'center', mt: 1}}>
                 <Grid sx= {{mx: 1, mt: 1}}>
                     <Image src="/PinClipart.jpg" alt="Banner" width= {60}  height= {60}/>
                 </Grid>
@@ -36,7 +36,7 @@ export default function index() {
                     </Grid>
                 </Grid>
             </Grid>
-            <Grid item xs={12} md={3} sx= {{overflow: 'hidden', borderRadius: '4px'}}>
+            <Grid item xs={12} md={3} mb={1} sx= {{overflow: 'hidden', borderRadius: '4px'}}>
                 <Map />
             </Grid>
         </Grid>

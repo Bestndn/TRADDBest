@@ -31,7 +31,7 @@ function Mymap() {
                 <p>React Functional Components with OpenLayers Example</p>
                 <p>Click the map to reveal location coordinate via React State</p>
             </div> */}
-
+            
             <MapWrapper features height={"auto"} />
             
         </div>

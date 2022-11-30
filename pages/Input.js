@@ -487,7 +487,7 @@ export default function Menu() {
                                 </Grid>
                             </Grid>
 
-                            {/* <Grid>
+                            <Grid sx={{border: '1px solid'}}>
                                 <TableContainer component={Paper}>
                                 <Table sx={{ minWidth: 1000 }} aria-label="simple table">
                                 <caption><Pagination count={10} variant="outlined" shape="rounded"/></caption>
@@ -528,9 +528,9 @@ export default function Menu() {
                                 </TableContainer>
                                     </Grid>
                                     <Grid container sx={{ mt: 1, ml: 1 }}>
-                                    <Grid className={styles.kanitM}>จำนวนทั้งหมด 5 รายการ</Grid>
-                                    <Grid className={styles.kanitM}>นำเข้าได้ 2</Grid>
-                                    <Grid className={styles.kanitM}>นำเข้าไม่ได้ 3</Grid>
+                                    <Grid className={styles.kanit}>จำนวนทั้งหมด 5 รายการ</Grid>
+                                    <Grid className={styles.kanit}>นำเข้าได้ 2</Grid>
+                                    <Grid className={styles.kanit}>นำเข้าไม่ได้ 3</Grid>
 
                                     <Grid sx={{ ml: '42%', mt: -2}}>
                                     <Pagination count={10} variant="outlined" shape="rounded" color="primary"/>
@@ -539,7 +539,7 @@ export default function Menu() {
                                     <Grid container sx={{ justifyContent: 'flex-end', mt: 3}}>
                                     <Button variant="contained" sx={{ mr: 10}} className={styles.kanit}>ปรับปรุงข้อมูล</Button>
                                     <Button variant="contained" sx={{ mr: 5 }} className={styles.kanit}>เทียบเคียง</Button>
-                                </Grid> */}
+                                </Grid>
 
                         </Grid>
                     </Grid>

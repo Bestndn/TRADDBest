@@ -6,6 +6,7 @@ import '../styles/globals.css';
 import Layout from './Layout';
 import Footer from './Component/Footer';
 import { useRouter } from 'next/router'
+import styles from '../styles/page.css'
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter()

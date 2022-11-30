@@ -1,23 +1,11 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
 import Typography from '@mui/material/Typography';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Fab from '@mui/material/Fab';
-import { AiFillCheckCircle, AiFillExclamationCircle, AiFillCloseCircle, AiFillMinusCircle, AiFillChrome, AiOutlineCloudDownload } from "react-icons/ai";
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
-import Pagination from '@mui/material/Pagination';
 import axios from "axios"
 import styles from '../../../styles/Home.module.css';
 import { Card, CardContent, Divider, IconButton } from '@mui/material';
@@ -26,6 +14,7 @@ import { HiFolderOpen } from 'react-icons/hi2';
 import { useRef, HTMLInputElement } from 'react';
 import Image from 'next/image'
 import Map from '../../map'
+import Table2 from '../../Tb'
 
 
 const optionTypes = [
@@ -46,75 +35,107 @@ const top100Films = [
 function createData(t1, t2, t3, t4, t5, t6, t7, t8, t9) {
     return { t1, t2, t3, t4, t5, t6, t7, t8, t9 };
 }
+
 const rows = [
     createData(
-      1, 
-      2922, 
-      2531, 
-      "4836 | 4830-00 (1:4000)", 
-      64, 
-      1-2-0,
-      <Fab size="small" color="success" aria-label="add" className={styles.AiFillCheckCircle}><AiFillCheckCircle size={40}/></Fab>, 
-      <Fab size="small" color="secondary" aria-label="add" className={styles.AiFillChrome}><AiFillChrome size={40}/></Fab>,
-      '',
+      '1', 
+      <IconButton size="small" aria-label="Map"><Image src="/Location.png" alt="Banner" width= {20}  height= {20}/></IconButton>, 
+      '71000000', 
+      '4836', 
+      'I', 
+      '5030',
+      '64', 
+      '4000',
+      '64',
       ),
-  
-      createData(
-        2, 
-        2922, 
-        2531, 
-        "4836 | 4830-00 (1:4000)", 
-        64, 
-        1-2-0,
-        <Fab size="small" color="success" aria-label="add" className={styles.AiFillCheckCircle}><AiFillCheckCircle size={40}/></Fab>, 
-        <Fab size="small" color="secondary" aria-label="add" className={styles.AiFillChrome}><AiFillChrome size={40}/></Fab>,
-        '',
-        ),
-  
-        createData(
-          3, 
-          2922, 
-          2531, 
-          "4836 | 4830-00 (1:4000)", 
-          64, 
-          1-2-0,
-          <Fab size="small" color="secondary" aria-label="add" className={styles.AiFillExclamationCircle}><AiFillExclamationCircle size={40}/></Fab>, 
-          <Fab size="small" color="secondary" aria-label="add"  className={styles.AiFillMinusCircle}><AiFillMinusCircle size={40}/></Fab>,
-          '',
-          ),
-  
-          createData(
-            4, 
-            2922, 
-            2531, 
-            "4836 | 4830-00 (1:4000)", 
-            64, 
-            1-2-0,
-            <Fab size="small" color="secondary" aria-label="add" className={styles.AiFillCloseCircle}><AiFillCloseCircle size={40}/></Fab>, 
-            <Fab size="small" color="secondary" aria-label="add" className={styles.AiFillMinusCircle}><AiFillMinusCircle size={40}/></Fab>,
-            '',
-            ),
-  
-            createData(
-              5, 
-              2922, 
-              2531, 
-              "4836 | 4830-00 (1:4000)", 
-              64, 
-              1-2-0,
-              <Fab size="small" color="secondary" aria-label="add" className={styles.AiFillCloseCircle}><AiFillCloseCircle size={40}/></Fab>, 
-              <Fab size="small" color="secondary" aria-label="add" className={styles.AiFillMinusCircle}><AiFillMinusCircle size={40}/></Fab>,
-              '',
-              ),
+    createData(
+      '2', 
+      <IconButton size="small" aria-label="Map"><Image src="/Location.png" alt="Banner" width= {20}  height= {20}/></IconButton>, 
+      '71000000', 
+      '4836', 
+      'I', 
+      '5030',
+      '64', 
+      '4000',
+      '64',
+      ),
+    createData(
+      '3', 
+      <IconButton size="small" aria-label="Map"><Image src="/Location.png" alt="Banner" width= {20}  height= {20}/></IconButton>, 
+      '71000000', 
+      '4836', 
+      'I', 
+      '5030',
+      '64', 
+      '4000',
+      '64',
+      ),
+    createData(
+      '4', 
+      <IconButton size="small" aria-label="Map"><Image src="/Location.png" alt="Banner" width= {20}  height= {20}/></IconButton>, 
+      '71000000', 
+      '4836', 
+      'I', 
+      '5030',
+      '64', 
+      '4000',
+      '64',
+      ),
+    createData(
+      '5', 
+      <IconButton size="small" aria-label="Map"><Image src="/Location.png" alt="Banner" width= {20}  height= {20}/></IconButton>, 
+      '71000000', 
+      '4836', 
+      'I', 
+      '5030',
+      '64', 
+      '4000',
+      '64',
+      ),
+    createData(
+      '5', 
+      <IconButton size="small" aria-label="Map"><Image src="/Location.png" alt="Banner" width= {20}  height= {20}/></IconButton>, 
+      '71000000', 
+      '4836', 
+      'I', 
+      '5030',
+      '64', 
+      '4000',
+      '64',
+      ),
+    createData(
+      '5', 
+      <IconButton size="small" aria-label="Map"><Image src="/Location.png" alt="Banner" width= {20}  height= {20}/></IconButton>, 
+      '71000000', 
+      '4836', 
+      'I', 
+      '5030',
+      '64', 
+      '4000',
+      '64',
+      ),
+    createData(
+      '5', 
+      <IconButton size="small" aria-label="Map"><Image src="/Location.png" alt="Banner" width= {20}  height= {20}/></IconButton>, 
+      '71000000', 
+      '4836', 
+      'I', 
+      '5030',
+      '64', 
+      '4000',
+      '64',
+      ),
 ];
 
 const customTheme = createTheme({
     palette: {
       primary: {
         main: '#2F4266',
+        second: '#FFC71A',
       },
       secondary: {
         main: '#fff',
+        second: '#4167B3'
       },
     },
   });
@@ -128,32 +149,44 @@ const customTheme = createTheme({
     &:hover {
       color: ${theme.palette.primary.main};
       background-color: ${theme.palette.secondary.main};
-      transform: scale(1.08);
+      
+    }
+    `}
+  `;
+  const Examinebutton = styled(Button)`
+    ${({ theme }) => `
+    cursor: pointer;
+    background-color: ${theme.palette.primary.second};
+    transition: ${theme.transitions.create(['background-color', 'transform'], {
+      duration: theme.transitions.duration.standard,
+    })};
+    &:hover {
+      color: ${theme.palette.secondary.main};
+      background-color: ${theme.palette.primary.main};
+      
     }
     `}
   `;
 
 export default function Menu() {
-    const [Dayvalue, setDayvalue] = React.useState(null);
-    const [Dayvalue1, setDayvalue1] = React.useState(null);
     const [data, setData] = React.useState([]);
     const [errorChangwat, setErrorChangwat] = React.useState(false);
     const [errorBranch, setErrorBranch] = React.useState(false);
+    const [errorDocument, setErrorDocument] = React.useState(false);
+    const [errorFile, setErrorFile] = React.useState(false);
+    const [errorZone, setErrorZone] = React.useState(false);
     const [searchChangwat, setSearchChangwat] = React.useState([]);
-    const [valueChangwat, setValueChangwat] = React.useState(null);
     const [searchBranch, setSearchBranch] = React.useState([]);
+    const [valueChangwat, setValueChangwat] = React.useState(null);
     const [valueBranch, setValueBranch] = React.useState(null);
+    const [document, setDocument] = React.useState('');
+    const [files, setFiles] = React.useState('');
+    const [zones, setZone] = React.useState(null);
+    const [show, setShow] = useState(false)
+    const [show1, setShow1] = useState(true)
+    const [show2, setShow2] = useState(true)
     const inputRef = useRef(null);
         
-    const handleChange = (newValue) => {
-        let startdate = dayjs(newValue).format("YYYY-MM-DD");
-        setDayvalue(startdate);
-        setDayvalue1(null);
-    };
-    const handleChange1 = (newValue) => {
-        let enddate = dayjs(newValue).format("YYYY-MM-DD");
-        setDayvalue1(enddate);
-    };
     const handleChangwat = (event, value) => {
         setValueChangwat(value);
         console.log(value);
@@ -166,25 +199,26 @@ export default function Menu() {
         setErrorBranch(false);
       }
     
-      const [errorD, setErrorD] = React.useState(false);
-      const [document, setDocument] = React.useState('');
       const handleChangeDocument = (event, value) => {
         setDocument(value); 
-        setErrorD(false);
+        setErrorDocument(false);
       }
     
-      const [errorF, setErrorF] = React.useState(false);
-      const [errorZ, setErrorZ] = React.useState(false);
-      const [files, setFiles] = React.useState('');
-      const [zones, setZone] = React.useState(null);
       const handleFile = (event, value) => {
         setFiles(value); 
-        setErrorF(false);
+        setErrorFile(false);
       }
       const handleZone = (event, value) => {
         setZone(value); 
-        setErrorZ(false);
+        setErrorZone(false);
       }
+      const handleSubmit = () => {
+        setShow(true)
+        setShow1(false)
+        setShow2(false)
+      }
+
+      
     
       const _resSearchChangwat = async () => {
         try {
@@ -231,8 +265,7 @@ export default function Menu() {
         const Background = styled(Box)({
             backgroundColor: '#fff', 
             width: '100%',
-            height: '100%', 
-            
+            height: '100vh', 
             minHeight: '700px',
             display: 'flex', 
             backgroundColor: '#fff'
@@ -242,10 +275,10 @@ export default function Menu() {
     <div>
         <ThemeProvider theme={customTheme}>
             <Background>
-                <Grid container>
+                <Grid container sx={{height: '100%'}}>
                     <Grid item xs={12} sm={5.5} sx= {{}}>
                         <Grid container alignItems="center" justifyContent="center" sx={{}}>
-                            <Grid mt={2}>
+                            <Grid mt={4}>
                                 <Typography component="div" className= {styles.kanit1} sx= {{fontWeight: 'bold', color: '#2F4266'}}>
                                     นำเข้าและจัดการชั้นข้อมูลรูปแปลงที่ดินที่ไม่ปรากฎในบัญชีราคาประเมินที่ดิน
                                 </Typography>
@@ -318,21 +351,20 @@ export default function Menu() {
                                     <Typography variant="text" className={styles.kanit}> ประเภทเอกสาร </Typography>
                                     <Typography variant="text" className={styles.kanit} sx={{ color: 'red' }}> *</Typography>
                                     </div>} 
-                                    error={errorD}
-                                    helperText={errorD ? <text className={styles.kanit}>กรุณากรอกข้อมูลให้ครบ</text> : ""}
+                                    error={errorDocument}
+                                    helperText={errorDocument ? <text className={styles.kanit}>กรุณากรอกข้อมูลให้ครบ</text> : ""}
                                     />}
                                     />
                             </Grid>
-                            <Grid item xs={11} md={4.8} mt={2}>
+                            <Grid item xs={11} md={5.3} mt={2}>
                               <TextField
                                 focused 
                                 type="file"
                                 fullWidth
                                 size= "small"
-                                onChange={handleFile}
                                 value={files}
+                                onChange={handleFile}
                                 inputRef={inputRef}
-                                error={errorF}
                                 classes={{ option: styles.kanit}}
                                 sx={{
                                   '& input::file-selector-button': {
@@ -362,13 +394,14 @@ export default function Menu() {
                                     </InputAdornment>
                                         ),
                                         }}
-                                        helperText={errorF ? <text className={styles.kanit}>กรุณากรอกข้อมูลให้ครบ</text> : ""}
+                                        error={errorFile}
+                                        helperText={errorFile ? <text className={styles.kanit}>กรุณากรอกข้อมูลให้ครบ</text> : ""}
                                         label={<div>
                                         <Typography variant="text" className={styles.kanit}> เลือกไฟล์ </Typography>
                                         </div>}
                                       />
                             </Grid>
-                            <Grid item xs={11} md={2.5} mt={2}>
+                            <Grid item xs={11} md={2} mt={2}>
                                 <Autocomplete
                                     disableClearable
                                     fullWidth
@@ -390,29 +423,31 @@ export default function Menu() {
                                     <Typography variant="text" className={styles.kanit}> เลือกโซน </Typography>
                                     <Typography variant="text" className={styles.kanit} sx={{ color: 'red' }}> *</Typography>
                                     </div>}  
-                                    error={errorZ}
-                                    helperText={errorZ ? <text className={styles.kanit}>กรุณากรอกข้อมูลให้ครบ</text> : ""}
+                                    error={errorZone}
+                                    helperText={errorZone ? <text className={styles.kanit}>กรุณากรอกข้อมูลให้ครบ</text> : ""}
                                     />}
                                     />       
                             </Grid>
-                            <Grid item xs={12} my={2} justifyContent="center" alignContent="center" display="flex">
+                      {show1?  <Grid item xs={12} my={2} justifyContent="center" alignContent="center" display="flex">
                                 <Searchbutton 
                                 variant='contained' 
                                 sx= {{
                                     borderRadius: '8px', 
                                     boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+                                    width: '100px'
                                 }}
+                                onClick={handleSubmit}
                                 >
                                     <Typography variant='button' className= {styles.kanit}>
                                         นำเข้า
                                     </Typography>
                                 </Searchbutton>
-                                <Divider variant="middle" />
-                            </Grid>
+                            </Grid> :null}
+                                
                             
-                            <Grid container sx= {{justifyContent: 'center'}}>
+                      {show1?  <Grid container sx= {{justifyContent: 'center'}}>
                                 <Grid item xs={11.5}>
-                                <Card sx= {{bgcolor: '#FBFFFF', borderRadius: '5px'}}>
+                                <Card elevation={3} sx= {{bgcolor: '#FBFFFF', borderRadius: '5px', height: '170px'}}>
                                     <CardContent>
                                     <Grid container>
                                         <Grid item xs={12} lg={8.5}>
@@ -421,7 +456,7 @@ export default function Menu() {
                                             ข้อกำหนดในการนำเข้า
                                         </Typography>
                                         </Grid>
-                                        <Grid sx= {{display: 'flex', mt: 0.5}}>
+                                        <Grid sx= {{display: 'flex', mt: 1}}>
                                         <Typography className={styles.kanit} variant='body2'>
                                         • พิกัดรูปแปลง
                                         </Typography>
@@ -444,11 +479,6 @@ export default function Menu() {
                                             เท่านั้น 
                                         </Typography>
                                         </Grid>
-                                        <Grid>
-                                            <Typography className={styles.kanit} variant='caption' ml={1}>
-                                            สามารถ Download Template จากหน้าหลัก
-                                            </Typography>
-                                        </Grid>
                                         <Grid sx= {{display: 'flex', mt: 0.5}}>
                                         <Typography className={styles.kanit} variant='body2'>
                                         • นำเข้าได้
@@ -462,84 +492,93 @@ export default function Menu() {
                                         </Grid>
                                         </Grid>
                                     </Grid>
-                                        <Grid item xs={12} lg={3.5}>
-                                        <Grid display="flex" alignItems="center">
-                                            <AiOutlineCloudDownload color="#437FD8" size={20}/>
-                                            <Typography className={styles.kanit} variant='overline' fontWeight="bold" sx= {{textDecoration: 'underline', ml: 1}}>
-                                            Download Template
-                                            </Typography>
-                                        </Grid>
-                                        <Grid display="flex" flexDirection="column" ml={4}>
-                                            {download.map((el)=> {
-                                                return(
-                                                    <div>
-                                                        <Typography className={styles.kanit} variant='caption' sx= {{textDecoration: 'underline'}}>
-                                                        {el.name}
-                                                        </Typography>
-                                                    </div>
-                                                    )
-                                                })}
-                                        </Grid>
-                                        </Grid>
+                                        
                                     </Grid>
                                     </CardContent>
                                 </Card>
                                 </Grid>
-                            </Grid>
-
-                            {/* <Grid>
-                                <TableContainer component={Paper}>
-                                <Table sx={{ minWidth: 1000 }} aria-label="simple table">
-                                <caption><Pagination count={10} variant="outlined" shape="rounded"/></caption>
-                                    <TableHead>
-                                    <TableRow >
-                                        <TableCell align="ce nter" className={styles.kanit}>ลำดับ</TableCell>
-                                        <TableCell align="center" className={styles.kanit}>โฉนดที่ดินเลขที่</TableCell>
-                                        <TableCell align="center" className={styles.kanit}>หน้าสำรวจ</TableCell>
-                                        <TableCell align="center" className={styles.kanit}>ระวาง</TableCell>
-                                        <TableCell align="center" className={styles.kanit}>เลขที่ดิน</TableCell>
-                                        <TableCell align="center" className={styles.kanit}>เนื้อที่ไร่-งาน-ตร.ว.</TableCell>
-                                        <TableCell align="center" className={styles.kanit}>สถานะนำเข้า</TableCell>
-                                        <TableCell align="center" className={styles.kanit}>ไปแผนที่</TableCell>
-                                        <TableCell align="center" className={styles.kanit}> </TableCell>
-                                    </TableRow>
-                                    </TableHead>
-                                    <TableBody>
-                                    {rows.map((row) => (
-                                        <TableRow
-                                        key={row.t1}
-                                        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                                        >
-                                        <TableCell component="th" scope="row" align="center">
-                                            {row.t1}
-                                        </TableCell>
-                                        <TableCell align="center">{row.t2}</TableCell>
-                                        <TableCell align="center">{row.t3}</TableCell>
-                                        <TableCell align="center">{row.t4}</TableCell>
-                                        <TableCell align="center">{row.t5}</TableCell>
-                                        <TableCell align="center">{row.t6}</TableCell>
-                                        <TableCell align="center">{row.t7}</TableCell>
-                                        <TableCell align="center">{row.t8}</TableCell>
-                                        <TableCell align="center">{row.t9}</TableCell>
-                                        </TableRow>
-                                    ))}
-                                    </TableBody>
-                                </Table>
-                                </TableContainer>
-                                    </Grid>
-                                    <Grid container sx={{ mt: 1, ml: 1 }}>
-                                    <Grid className={styles.kanitM}>จำนวนทั้งหมด 5 รายการ</Grid>
-                                    <Grid className={styles.kanitM}>นำเข้าได้ 2</Grid>
-                                    <Grid className={styles.kanitM}>นำเข้าไม่ได้ 3</Grid>
-
-                                    <Grid sx={{ ml: '42%', mt: -2}}>
-                                    <Pagination count={10} variant="outlined" shape="rounded" color="primary"/>
-                                    </Grid>
-                                    </Grid>
-                                    <Grid container sx={{ justifyContent: 'flex-end', mt: 3}}>
-                                    <Button variant="contained" sx={{ mr: 10}} className={styles.kanit}>ปรับปรุงข้อมูล</Button>
-                                    <Button variant="contained" sx={{ mr: 5 }} className={styles.kanit}>เทียบเคียง</Button>
-                                </Grid> */}
+                            </Grid>  :null}
+                            
+                              {/* <Grid container>
+                                <Button variant='contained'className={styles.kanit1} 
+                                sx={{
+                                  borderRadius: '4px 4px 0px 0px', 
+                                  bgcolor: '#D7D7D7', 
+                                  color: '#000',
+                                  boxShadow: 'none',
+                                  fontWeight: 'bold',
+                                  '&:hover': {
+                                    color: '#fff',
+                                    backgroundColor: '#009C88'
+                                  },
+                                  '&:focus': {
+                                    color: '#fff',
+                                    backgroundColor: '#009C88'
+                                  },
+                                  }}>
+                                  นำเข้าได้
+                                </Button>
+                                <Button variant='contained'className={styles.kanit1} 
+                                sx={{
+                                  borderRadius: '4px 4px 0px 0px', 
+                                  bgcolor: '#D7D7D7', 
+                                  color: '#000',
+                                  boxShadow: 'none',
+                                  fontWeight: 'bold',
+                                  '&:hover': {
+                                    color: '#fff',
+                                    backgroundColor: '#009C88'
+                                  },
+                                  '&:focus': {
+                                    color: '#fff',
+                                    backgroundColor: '#009C88'
+                                  },
+                                  }}>
+                                  เคยเทียบเคียง
+                                </Button>
+                                <Button variant='contained'className={styles.kanit1} 
+                                sx={{
+                                  borderRadius: '4px 4px 0px 0px', 
+                                  bgcolor: '#D7D7D7', 
+                                  color: '#000',
+                                  boxShadow: 'none',
+                                  fontWeight: 'bold',
+                                  '&:hover': {
+                                    color: '#fff',
+                                    backgroundColor: '#009C88'
+                                  },
+                                  '&:focus': {
+                                    color: '#fff',
+                                    backgroundColor: '#009C88'
+                                  },
+                                  }}>
+                                  มีในบัญชีประกาศ
+                                </Button>
+                                <Button variant='contained'className={styles.kanit1} 
+                                sx={{
+                                  borderRadius: '4px 4px 0px 0px', 
+                                  bgcolor: '#D7D7D7', 
+                                  color: '#000',
+                                  boxShadow: 'none',
+                                  fontWeight: 'bold',
+                                  '&:hover': {
+                                    color: '#fff',
+                                    backgroundColor: '#009C88'
+                                  },
+                                  '&:focus': {
+                                    color: '#fff',
+                                    backgroundColor: '#009C88'
+                                  },
+                                  }}>
+                                  นำเข้าไม่ได้
+                                </Button>
+                              </Grid> */}
+                              
+                              {show?   
+                                <Grid sx={{overflow: 'hidden'}}>
+                                  <Table2/>
+                                </Grid>
+                              :null}
 
                         </Grid>
                     </Grid>

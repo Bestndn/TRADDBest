@@ -61,7 +61,7 @@ export default function Menu() {
         const Background = styled(Box)({
             backgroundColor: '#fff', 
             width: '100%',
-            height: '100%', 
+            height: '100vh', 
             minHeight: '700px',
             display: 'flex', 
             backgroundColor: '#fff',
@@ -76,7 +76,7 @@ export default function Menu() {
             <Background>
                 <Grid container>
                     <Grid item xs={12} sm={5.5} sx= {{}}>
-                        <Grid container alignItems="center" justifyContent="center" mt={2}>
+                        <Grid container alignItems="center" justifyContent="center" mt={3}>
                             <Grid sx= {{mt: 1, display: {xs: "none", lg: "block"}}}>
                                 <Image src="/PinClipart.jpg" alt="Banner" width= {60}  height= {60}/>
                             </Grid>

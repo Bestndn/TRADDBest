@@ -39,7 +39,7 @@ const openedMixin = (theme) => ({
     duration: theme.transitions.duration.enteringScreen,
   }),
   overflowX: 'hidden',
-  overflowY: 'hidden',
+  overflowY: 'auto',
   backgroundColor: '#00A09D',
   color: '#fff'
 });
@@ -49,7 +49,7 @@ const closedMixin = (theme) => ({
     duration: theme.transitions.duration.leavingScreen,
   }),
   overflowX: 'hidden',
-  overflowY: 'hidden',
+  overflowY: 'auto',
   backgroundColor: '#00A09D',
   color: '#fff',
   width: `calc(${theme.spacing(7)} + 1px)`,
@@ -190,19 +190,17 @@ export default function MiniDrawer({ children }) {
               backgroundImage: 'url(/Nav.png)',
               backgroundSize: 'cover',
               backgroundPosition: 'top',
-              
             }}
             >
                 <Toolbar>
                   <Grid container sx= {{alignItems: 'center', minwidth: '1100px'}}>
-                    <Grid item xs={1.5}>
+                    <Grid item xs={1.5} sx={{display: 'flex'}}>
                       <Image src="/Comu.png" alt="sdda" className={styles.Image} width={300} height={80}/>
                     </Grid>
-                    <Grid item xs={9} display="flex" justifyContent="center" alignItems="flex-end" sx= {{height: 50}}>
-                      <Typography variant="h5" noWrap className= {styles.kanit} 
+                    <Grid item xs={9} display="flex" justifyContent="center" alignItems="flex-end" sx= {{height: 60}}>
+                      <Typography variant="h5" noWrap className= {styles.kanit1} 
                         sx= {{color: '#fff', 
                               fontWeight: 'bold', 
-                              textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
                               display: {xs: "none", lg: "block"}
                         }} 
                         component="div"
@@ -264,9 +262,9 @@ export default function MiniDrawer({ children }) {
                       ))}
                 </List>
             </Drawer>
-            <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+            <Box component="main" sx={{ flexGrow: 1}}>
                 <DrawerHeader />
-                  <div>
+                  <div className={styles.container}>
                     {children}
                   </div>
             </Box>
