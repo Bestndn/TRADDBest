@@ -14,7 +14,8 @@ import { HiFolderOpen } from 'react-icons/hi2';
 import { useRef, HTMLInputElement } from 'react';
 import Image from 'next/image'
 import Map from '../../map'
-import Table2 from '../../Tb'
+import Table2 from '../Table/Tb'
+import Tb from '../Table/Tbdata'
 
 
 const optionTypes = [
@@ -132,6 +133,7 @@ const customTheme = createTheme({
       primary: {
         main: '#2F4266',
         second: '#FFC71A',
+        third: '#226CFD',
       },
       secondary: {
         main: '#fff',
@@ -162,7 +164,7 @@ const customTheme = createTheme({
     })};
     &:hover {
       color: ${theme.palette.secondary.main};
-      background-color: ${theme.palette.primary.main};
+      background-color: ${theme.palette.primary.third};
       
     }
     `}
@@ -576,7 +578,7 @@ export default function Menu() {
                               
                               {show?   
                                 <Grid sx={{overflow: 'hidden'}}>
-                                  <Table2/>
+                                  <Tb/>
                                 </Grid>
                               :null}
 

@@ -11,14 +11,14 @@ import TableRow from '@mui/material/TableRow';
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
 import Pagination from '@mui/material/Pagination';
 import axios from "axios"
-import styles from '../styles/Home.module.css';
+import styles from '../../../styles/Home.module.css';
 import { Card, CardContent, Divider, IconButton } from '@mui/material';
 import { useRef, HTMLInputElement } from 'react';
 import Image from 'next/image'
 
 
-function createData(t1, t2, t3, t4, t5, t6, t7, t8, t9) {
-    return { t1, t2, t3, t4, t5, t6, t7, t8, t9 };
+function createData(t1, t2, t3, t4, t5, t6, t7, t8, t9,t10) {
+    return { t1, t2, t3, t4, t5, t6, t7, t8, t9,t10 };
 }
 
 const rows = [
@@ -32,6 +32,7 @@ const rows = [
       '64', 
       '4000',
       '64',
+      <Image src="/Checked.png" alt="Banner" width= {20}  height= {20}/>
       ),
     createData(
       '2', 
@@ -43,6 +44,7 @@ const rows = [
       '64', 
       '4000',
       '64',
+      <Image src="/Checked.png" alt="Banner" width= {20}  height= {20}/>
       ),
     createData(
       '3', 
@@ -54,6 +56,7 @@ const rows = [
       '64', 
       '4000',
       '64',
+      <Image src="/Checked.png" alt="Banner" width= {20}  height= {20}/>
       ),
     createData(
       '4', 
@@ -65,6 +68,7 @@ const rows = [
       '64', 
       '4000',
       '64',
+      <Image src="/Checked.png" alt="Banner" width= {20}  height= {20}/>
       ),
     createData(
       '5', 
@@ -76,6 +80,7 @@ const rows = [
       '64', 
       '4000',
       '64',
+      <Image src="/Checked.png" alt="Banner" width= {20}  height= {20}/>
       ),
     createData(
       '5', 
@@ -87,6 +92,7 @@ const rows = [
       '64', 
       '4000',
       '64',
+      <Image src="/Checked.png" alt="Banner" width= {20}  height= {20}/>
       ),
     createData(
       '5', 
@@ -98,6 +104,7 @@ const rows = [
       '64', 
       '4000',
       '64',
+      <Image src="/Warn.png" alt="Banner" width= {20}  height= {20}/>
       ),
     createData(
       '5', 
@@ -109,6 +116,7 @@ const rows = [
       '64', 
       '4000',
       '64',
+      <Image src="/Docs.png" alt="Banner" width= {20}  height= {20}/>
       ),
 ];
 
@@ -117,6 +125,7 @@ const customTheme = createTheme({
       primary: {
         main: '#2F4266',
         second: '#FFC71A',
+        third: '#226CFD',
       },
       secondary: {
         main: '#fff',
@@ -133,7 +142,7 @@ const customTheme = createTheme({
     })};
     &:hover {
       color: ${theme.palette.primary.main};
-      background-color: ${theme.palette.secondary.main};
+      background-color: ${theme.palette.secondary.third};
       
     }
     `}
@@ -147,7 +156,7 @@ const customTheme = createTheme({
     })};
     &:hover {
       color: ${theme.palette.secondary.main};
-      background-color: ${theme.palette.primary.main};
+      background-color: ${theme.palette.primary.third};
       
     }
     `}
@@ -212,7 +221,7 @@ export default function Tb() {
               เลขที่ดิน
               </Typography>
             </TableCell>
-            <TableCell align="center">
+            <TableCell align="center" display="flex">
               <Typography variant='body2' className={styles.kanit1} color="#fff">
               สถานะ
               </Typography>
@@ -239,6 +248,7 @@ export default function Tb() {
             <TableCell align="center" className={styles.kanit}>{row.t7}</TableCell>
             <TableCell align="center" className={styles.kanit}>{row.t8}</TableCell>
             <TableCell align="center" className={styles.kanit}>{row.t9}</TableCell>
+            <TableCell align="center" className={styles.kanit}>{row.t10}</TableCell>
             </TableRow>
         ))}
         </TableBody>
@@ -285,11 +295,11 @@ export default function Tb() {
             </Grid>
           </Grid>
           <Grid>
-            <Examinebutton variant="contained" className={styles.kanit} 
+            {/* <Examinebutton variant="contained" className={styles.kanit} 
               sx={{borderRadius: '8px', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)', width: '110px', height: '45px', mr: 2}}>
               รายงาน
               แปลงนำเข้า
-            </Examinebutton>
+            </Examinebutton> */}
             <Examinebutton variant="contained" className={styles.kanit} 
               sx={{borderRadius: '8px', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)', width: '110px', height: '45px', mr: 1}}>
               ตรวจสอบ

@@ -215,7 +215,7 @@ export default function MiniDrawer({ children }) {
                 </Toolbar>
             </AppBar>
             <Drawer variant="permanent" open={open} sx= {{position: 'static'}}>
-                <DrawerHeader sx= {{position: 'static', mt: 10}}>
+                <DrawerHeader sx= {{position: 'static', mt: 15}}>
                   <DrawButton onClick={() => {setOpen((prev) => !prev);}} >
                     {open === true ? <CiSquareChevLeft size={30} /> : <CiSquareChevRight size= {30} />}
                   </DrawButton>
